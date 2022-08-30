@@ -24,10 +24,16 @@ public class Truck implements Runnable {
 
 
         for (int i = 0; i < nRaces; i++) {
+
             synchronized (mutex) {
                 elevatorA.add(capacityPerElevator);
+//                elevatorB.add(capacityPerElevator);
+            }
+            synchronized (mutex) {
                 elevatorB.add(capacityPerElevator);
             }
+
+
 //			elevator.add(capacity);
         }
 
