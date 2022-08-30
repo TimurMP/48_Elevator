@@ -6,19 +6,27 @@ public class Truck implements Runnable {
     private static Object mutex = new Object();
     int nRaces;
     int capacity;
-    Elevator elevator;
+    Elevator elevatorA;
+    Elevator elevatorB;
 
-    public Truck(int nRaces, int capacity, Elevator elevator) {
+    int capacityPerElevator;
+
+    public Truck(int nRaces, int capacity, Elevator elevatorA, Elevator elevatorB) {
         this.nRaces = nRaces;
         this.capacity = capacity;
-        this.elevator = elevator;
+        this.elevatorA = elevatorA;
+        this.elevatorB = elevatorB;
+        this.capacityPerElevator = capacity/2;
     }
 
     @Override
     public void run() {
+
+
         for (int i = 0; i < nRaces; i++) {
             synchronized (mutex) {
-                elevator.add(capacity);
+                elevatorA.add(capacityPerElevator);
+                elevatorB.add(capacityPerElevator);
             }
 //			elevator.add(capacity);
         }

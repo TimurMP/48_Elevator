@@ -10,10 +10,11 @@ public class ElevatorAppl {
     private static final int CAPACITY = 20;
 
     public static void main(String[] args) throws InterruptedException {
-        Elevator lenin = new Elevator("V. I. Lenin");
+        Elevator lenin = new Elevator("Lenin");
+        Elevator stalin = new Elevator("Stalin");
         Truck[] trucks = new Truck[N_TRUCKS];
         for (int i = 0; i < trucks.length; i++) {
-            trucks[i] = new Truck(N_RACES,CAPACITY,lenin);
+            trucks[i] = new Truck(N_RACES,CAPACITY,lenin, stalin);
 
         }
 
@@ -28,6 +29,8 @@ public class ElevatorAppl {
         }
 
         System.out.println("Elevator " + lenin.getName() + ", has " + lenin.getCurrentVolume() + " tons" );
+        System.out.println("Elevator " + stalin.getName() + ", has " + lenin.getCurrentVolume() + " tons" );
+
 
 
     }
